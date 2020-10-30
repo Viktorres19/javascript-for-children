@@ -1,0 +1,27 @@
+body{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+	background: pink;
+	box-sizing: border-box;
+}
+
+.flex-row{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-right: -2em;
+	margin-left: -2em;
+	box-sizing: border-box;
+}
+
+.flex-column{
+	padding-right: 2em;
+	padding-left: 2em;
+	box-sizing: border-box;
+	flex: 0 1 50%;
+}
