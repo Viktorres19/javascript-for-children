@@ -352,26 +352,61 @@
 		//складаємо схему гри:
 		/*
 		Pick random word
-
-		While the word has not been guessed {
-			Show the player their current progress
-			Get a guess from the player
-
-			If the player wants to quit the game {
-				Quit the game
-			}
-			Else if the guess is not a single letter {
-				Tell the player to pick a single letter
-			}
-			Else {
-				If the guess is in the word {
-					Update the player's progress with the guess
+		обираємо випадкове слово
+		*/
+		//створюємо массив варіантів
+		var words = [
+			"javascript",
+			"monkey",
+			"amazing",
+			"pancake"
+		];
+		//функція, що обирає вибадковий елемент з цього масиву
+		var word = words[Math.floor(Math.random() * words.length)];
+		console.log(word);
+		//створюємо пустий масив відповідей
+		var answerArray = [];
+		//наповнюємо масив відповідей за допомогою цього циклу нижніми слешами
+		for (var i = 0; i < word.length; i++) {
+			answerArray[i] = "_";
+		}
+		//змінна, значення якої дорівнює довжині загаданого слова
+		var remainingLetters = word.length;
+		console.log(answerArray);
+		console.log(remainingLetters);
+		//While the word has not been guessed {
+		while (remainingLetters > 0) {
+		//Get a guess from the player
+		var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+		//If the player wants to quit the game
+		if (guess === null) {
+			//Quit the game
+			break;
+			//Else if the guess is not a single letter
+		} else if (guess.length !== 1) {
+			//Tell the player to pick a single letter
+			alert("Please enter a single letter.");
+			//If the guess is in the word
+		} else {
+			
+			//Update the game with the guess
+			for (var j = 0; j < word.length; j++) {
+				if (word[j] === guess) {
+					answerArray[j] = guess;
+					remainingLetters--;
 				}
 			}
+			//Show the player their current progress
+			/*If the guess is in the word {
+					Update the player's progress with the guess
+				}*/
+			
 		}
+		}
+		//Congratulate the player on guessing the word
 
-		Congratulate the player on guessing the word
-		*/
+		//console.log(answerArray.join(" ")); //замінити на alert
+		
 
 	</script>
 </body>
