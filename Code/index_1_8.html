@@ -589,6 +589,173 @@
 		// var result = areArraysSame(tupozavr, shlyukhozavr);
 		// console.log(result);
 
+		//Завдання #3 - Гра "Шибениця в функціях"
+
+		/*------Кодуємо гру---------*/
+		//створюємо масив із слів
+		// var words = [
+		// 	"javascript",
+		// 	"monkey",
+		// 	"amazing",
+		// 	"pancake",
+		// 	"car",
+		// 	"illusion"
+		// ];
+
+		//функція, що обирає випадкове слово з масиву
+		// var word = words[Math.floor(Math.random() * words.length)];
+
+		//створюємо пустий масив відповідей
+		// var answerArray = [];
+		//наповнюємо масив відповідей за допомогою цього циклу нижніми слешами
+		// for (var i = 0; i < word.length; i++) {
+		// 	answerArray[i] = "_";
+		// }
+		//буде потрібна для відслідковування кількості літер, що не вгадані
+		// var remainingLetters = word.length;
+
+		// var playerAttempts = 0;
+
+		// while (remainingLetters > 0) {
+			//Game code goes here
+			// Show the player their progress
+			// alert(answerArray.join(" "));
+			//Take input from the player - and convert to lower case
+			// var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+			//рахуємо спроби
+			// ++playerAttempts;
+			//If the player wants to quit the game
+			// if (guess === null) {
+			//Вийти з гри - універсальна умова, щоб перевіряти Cancel
+			// break;
+			//Якщо введена літера не одна
+			// } else if (playerAttempts == word.length + 4) {
+			// 	alert("Your attempts are over!");
+			// 	break;
+			// } else if (guess.length !== 1) {
+			//Сказати гравцю ввести одиночну літеру
+			// alert("Please enter a single letter.");
+			//Якщо буква є в слові
+			// } else {
+			// 	guess = guess.toLowerCase();
+				//Оновити answerArray та remainingLetters (параметр guess)
+				// for (var j = 0; j < word.length; j++) {
+					//якщо вказана буква є в загаданому слові
+					// if (word[j] === guess && answerArray[j] == "_") {
+						//вносимо в масив відповідей цю букву під таким же індексом як і в змінній word (загадка - відгадка)
+						// answerArray[j] = guess;
+						//зменшуємо на один цю змінну кожного влучного разу
+				// 		remainingLetters--;
+				// 	}
+				// }
+				// для кожного правильного слова
+		// 	}
+		// }
+		//Показуємо гравцю відповід і вітаємо його
+		// alert(answerArray.join(" "));
+
+		// if (answerArray.join("") === word) {
+		// 	alert("Good job! The answer was - " + "'" + answerArray.join("") + "'");
+		// } else {
+		// 	alert("It should have been - " + "'" + word + "'");
+		// }
+		/*------ Кінець гри "Шибениця" ------*/
+
+		/*------ Підказка від автора ------*/
+		var words = [
+			"javascript",
+			"monkey",
+			"amazing",
+			"pancake",
+			"car",
+			"illusion"
+		];
+
+		//Пишіть свої функції тут
+		//#1 - функція, що обирає випадкове слово з масиву
+		var pickWord = function (a) {
+			return words[Math.floor(Math.random() * words.length)];
+		};
+		
+		//#2 - Функція, що створює пустий масив для відповідей
+		var setupAnswerArray = function (word) {
+			var answerArray = [];
+			for (var i = 0; i < word.length; i++) {
+				answerArray[i] = "_";
+			}
+			return answerArray;
+		};
+
+		//Початкове значення спроб гравця до початку виконання головної функції
+		var playerAttempts = 0;
+
+		//#3 - Функція, що буде показувати робити alert прогреса гравця
+		var showPlayerProgress = function (answerArray) {
+			alert(answerArray.join(" "));
+		};
+
+		//#4 - Запит на введення, щоб отримати варіанти відповіді
+		var getGuess = function () {
+			return prompt("Guess a letter, or click Cancel to stop playing.");
+		};
+
+		//#5 - Оновлюємо масив відповідей та повертає число, що показує, скільки разів
+		// данний варіант відповіді фігурує у слові, щоб масив remainingLetters
+		//міг оновитися
+		var updateGameState = function (guess, word, answerArray) {
+			var appearances = 0;
+			//Оновити answerArray та remainingLetters (параметр guess)
+			for (var j = 0; j < word.length; j++) {
+				//якщо вказана буква є в загаданому слові
+				if (word[j] === guess && answerArray[j] == "_") {
+					//вносимо в масив відповідей цю букву під таким же індексом як і в змінній word (загадка - відгадка)
+					answerArray[j] = guess;
+					appearances++;
+				}
+			}
+
+			return appearances;
+		};
+
+		//#6 - Alert, щоб показати відповідь та привітати гравця
+		var showAnswerAndCongratulatePlayer = function (answerArray) {
+			alert(answerArray.join(" "));
+
+			if (answerArray.join("") === word) {
+				alert("Good job! The answer was - " + "'" + answerArray.join("") + "'");
+			} else {
+				alert("It should have been - " + "'" + word + "'");
+			}
+		};
+
+		var word = pickWord(words);
+		var answerArray = setupAnswerArray(word);
+		//буде потрібна для відслідковування кількості літер, що не вгадані
+		var remainingLetters = word.length;
+
+
+		while(remainingLetters > 0) {
+			showPlayerProgress(answerArray);
+			var guess = getGuess();
+			++playerAttempts;
+			if (guess === null) {
+				break;
+			//Якщо введена літера не одна
+			} else if (playerAttempts == word.length + 4) {
+				alert("Your attempts are over!");
+				break;
+			} else if (guess.length !== 1) {
+				alert("Please enter a single letter.");
+			} else {
+				var correctGuesses = updateGameState(guess, word, answerArray);
+				//зменшуємо на один цю змінну кожного влучного разу
+				remainingLetters -= correctGuesses;
+			}
+		}
+
+		showAnswerAndCongratulatePlayer(answerArray);
+
+
 
 
 

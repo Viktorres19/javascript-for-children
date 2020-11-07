@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dom, jQuery and...</title>
+</head>
+<body>
+	<h1 id="main-heading">Hello world!</h1>
+
+	<!-- Підключаємо jQuery -->
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+
+		//Запрошуемо та додаэмо новий текст в заголовок
+		// var newHeadingText = prompt("Please provide a new heading");
+		// $("#main-heading").text(newHeadingText);
+		//Створюємо новий елемент та додаємо його в боди
+		// $("body").append("<p>This is a new paragraph</p>");
+
+		//Запрошуємо та додаємо численніе елементи
+		//Цикл в 3 кола
+		// for (var i = 0; i < 3; i++) {
+			//запитує питання
+			// var hobby = prompt("Tell me one of your hobbies!");
+			//та наповнює їх в body тегами p
+			// $("body").append("<p>" + hobby + "</p>");
+		// }
+
+		//елемент h1 затухає протягом 3 секунд
+		$("h1").fadeOut(3000);
+
+		/*Приклад без jQuery*/
+		//Присвоюємо в змінну html, що належить до тегу
+		// var headingElement = document.getElementById("main-heading");
+		//виводимо в консоль текст з мегу
+		// console.log(headingElement.innerHTML);
+		//це запрос на ввод нового наповнення для тегу за бажанням
+		// var newHeadingText = prompt("Please provide a new heading");
+		//присвоюємо змінній заголовку значення, взяте за prompt
+		// headingElement.innerHTML = newHeadingText;
+		/*Кінець прикладу без jQuery*/
+
+
+	</script>
+</body>
+</html>
