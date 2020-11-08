@@ -7,28 +7,12 @@
 </head>
 <body>
 	<h1 id="main-heading">Hello world!</h1>
+	<!-- <h1 id="main-heading">Hello world!</h1> -->
+	<!-- <p>text</p> -->
 
 	<!-- Підключаємо jQuery -->
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 	<script>
-
-		//Запрошуемо та додаэмо новий текст в заголовок
-		// var newHeadingText = prompt("Please provide a new heading");
-		// $("#main-heading").text(newHeadingText);
-		//Створюємо новий елемент та додаємо його в боди
-		// $("body").append("<p>This is a new paragraph</p>");
-
-		//Запрошуємо та додаємо численніе елементи
-		//Цикл в 3 кола
-		// for (var i = 0; i < 3; i++) {
-			//запитує питання
-			// var hobby = prompt("Tell me one of your hobbies!");
-			//та наповнює їх в body тегами p
-			// $("body").append("<p>" + hobby + "</p>");
-		// }
-
-		//елемент h1 затухає протягом 3 секунд
-		$("h1").fadeOut(3000);
 
 		/*Приклад без jQuery*/
 		//Присвоюємо в змінну html, що належить до тегу
@@ -41,6 +25,51 @@
 		// headingElement.innerHTML = newHeadingText;
 		/*Кінець прикладу без jQuery*/
 
+		/*Приклади з jQuery*/
+		//Запрошуемо та додаэмо новий текст в заголовок
+		// var newHeadingText = prompt("Please provide a new heading");
+		// $("#main-heading").text(newHeadingText);
+		//Створюємо новий елемент та додаємо його в боди
+		// $("body").append("<p>This is a new paragraph</p>");
+		//Запрошуємо та додаємо численніе елементи
+		//Цикл в 3 кола
+		// for (var i = 0; i < 3; i++) {
+			//запитує питання
+			// var hobby = prompt("Tell me one of your hobbies!");
+			//та наповнює їх в body тегами p
+			// $("body").append("<p>" + hobby + "</p>");
+		// }
+		//елемент h1 затухає протягом 3 секунд
+		// $("h1").fadeOut(3000);
+		//елемент h1 добавляємо текст та затухання
+		// $("h1").text("This will fade out").fadeOut(3000);
+		//елемент h1  затухає та з'являється
+		// $("h1").fadeOut(3000).fadeIn(2000);
+		//елемент h1 слайдиться на зникнення та на з'являння
+		// $("h1").slideUp(1000).slideDown(1000);
+
+
+		/*#1 - фінальне завдання*/
+		// var friends = [ "Alpaca", "Ring-tailed Lemur", "Monkey", "Python", "Yeti"
+		// 	];
+		// 	$("h1").text("My friends").hide();
+		// for (var i = 0; i < friends.length; i++) {
+		// 	$("body").append("<p>" + friends[i] + "</p>");
+		// }
+		// $("p").append(" smells!");
+
+		/*#2 - фінальне завдання - мигтючий заголовок*/
+		//$("h1").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+		// for (var i = 0; i < 20; i++) {
+		// 	$("h1").fadeOut(100).fadeIn(100);
+		// }
+
+		/*#3 - затримуємо анімації*/
+		// $("h1").fadeOut(5000).fadeIn(5000);
+
+		/*#4 - використовуємо FADETO*/
+		$("h1").fadeTo(2000, .5);
+		
 
 	</script>
 </body>
