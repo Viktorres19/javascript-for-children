@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Інтерактивне программування</title>
+</head>
+<body>
+	<h1 id="heading">Hello world!</h1>
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+
+		/*Функція Set timeout*/
+		// var timeUp = function () {
+		// 	alert("Time's up!");
+		// };
+		// setTimeout(timeUp, 3000);
+
+		/*Виводимо напис з інтервалом, а потім очищаємо інтервал*/
+		// var counter = 1;
+		// var printMessage = function () {
+		// 	console.log("You have been staring at your console for " + counter + "seconds");
+		// 	counter++;
+		// }
+		// var intervalId = setInterval(printMessage, 1000);
+		// clearInterval(intervalId);
+
+		/*Робимо рухомий header - рухається кожні 30 мілісекунд*/
+		// var leftOffset = 0;
+		// var moveHeading = function () {
+		// 	$("#heading").offset({ left: leftOffset});
+		// 	leftOffset++;
+		// 	if (leftOffset > 200) {
+		// 		leftOffset = 0;
+		// 	}
+		// };
+		// setInterval(moveHeading, 30);
+
+		/*Відловлюємо координати кліку по заголовку*/
+		// var clickHandler = function (event) {
+		// 	console.log("Click! " + event.pageX + " " + event.pageY);
+		// };
+		// $("h1").click(clickHandler);
+
+		/*Переміщуємо заголовок за переміщенням мишки*/
+		// $("html").mousemove(function (event) {
+		// 	$("#heading").offset({
+		// 		left: event.pageX,
+		// 		top: event.pageY
+		// 	});
+		// });
+
+		/*#1 фінальне завдання - слідкуємо за кліками мишки*/
+		// $("html").on("click", function (event) {
+		// 	$("#heading").offset({
+		// 		left: event.pageX,
+		// 		top: event.pageY
+		// 	});
+		// 	console.log("Position X: " + event.pageX);
+		// 	console.log("Position Y: " + event.pageY);
+		// });
+
+		/*#2 фінальне завдання - заголовок рухається по квадрату*/
+		var leftOffset = 0;
+		var topOffset = 0;
+		var moveRight;
+		var moveHeaderBottom;
+		var moveHeaderLeft;
+		var moveHeaderTop;
+		var moveHeading = function () {
+			$("#heading").offset({
+				left: leftOffset,
+				top: topOffset
+			});
+			leftOffset++;
+			console.log(leftOffset + " " + topOffset);
+			if (leftOffset > 200) {
+				clearInterval(moveRight);
+				moveHeaderBottom = setInterval(moveBottom, 30);
+			}
+		};
+
+		var moveBottom = function () {
+			$("#heading").offset({
+				left: leftOffset,
+				top: topOffset
+			});
+			topOffset++;
+			console.log(leftOffset + " " + topOffset);
+			if (topOffset > 200) {
+				clearInterval(moveHeaderBottom);
+				moveHeaderLeft = setInterval(moveLeft, 30);
+			}
+		};
+
+		var moveLeft = function () {
+			$("#heading").offset({
+				left: leftOffset,
+				top: topOffset
+			});
+			leftOffset--;
+			console.log(leftOffset + " " + topOffset);
+			if (leftOffset == 0) {
+				clearInterval(moveHeaderLeft);
+				moveHeaderTop = setInterval(moveTop, 30);
+			}
+		};
+
+		var moveTop = function () {
+			$("#heading").offset({
+				left: leftOffset,
+				top: topOffset
+			});
+			topOffset--;
+			console.log(leftOffset + " " + topOffset);
+			if (topOffset == 0) {
+				clearInterval(moveHeaderTop);
+				moveRight = setInterval(moveHeading, 30);
+			}
+		};
+
+		moveRight = setInterval(moveHeading, 30);
+
+		/*#3 фінальне завдання - додаэмо до 2-го завдання event on click*/
+		// $("h1").on("click", function (event) {
+		// 	clearInterval(moveRight);
+		// 	clearInterval(moveHeaderBottom);
+		// 	clearInterval(moveHeaderLeft);
+		// 	clearInterval(moveHeaderTop);
+		// });
+
+		/*#4 - гра клацни по заголовку */
+		//1. прискорити заголовок коли click
+	
+	</script>
+</body>
+</html>

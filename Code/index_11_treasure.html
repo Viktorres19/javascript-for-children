@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Find the buried treasure!</title>
+</head>
+<body>
+	<h1 id="heading">Знайди скарб!</h1>
+	<img id="map" width="800" height="800" src="map_treasures.png" alt="">
+	<p id="distance"></p>
+	<p id="the-rest"></p>
+
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+		//вибираємо випадкове число - створюємо функцию з одним параментром
+		var getRandomNumber = function (size) {
+			return Math.floor(Math.random() * size);
+		};
+
+		//вираховуємо відстань між кліком і скарбом (як далеко від скарбу)
+		var getDistance = function (event, target) {
+			//координата кліку по X відняти координату схованого скарбу по X
+			var diffX = event.offsetX - target.x;
+			//координата кліку по Y відняти координату схованого скарбу по Y
+			var diffY = event.offsetY - target.y;
+			//повертаємо квадратний корінь результату виразу
+			return Math.sqrt((diffX * diffX) + (diffY * diffY));
+		};
+
+		//висвітлювати повідомлення про кліки гравцю
+		var getDistanceHint = function (distance) {
+			if (distance < 10) {
+				return "Неймовірно гаряче!";
+			} else if (distance < 20) {
+				return "Дуже гаряче";
+			} else if (distance < 40) {
+				return "Гаряче";
+			} else if (distance < 80) {
+				return "Тепло";
+			} else if (distance < 160) {
+				return "Холодно";
+			} else if (distance < 320) {
+				return "Дуже холодно";
+			} else {
+				return "Замерзайка!";
+			}
+		};
+
+
+		//Задаємо координати скарбу - ці змінні для вибору координат
+		var width = 800;
+		var height = 800;
+		//параметр для обробника кликів
+		var clicks = 0;
+		var distanceHint = 0;
+		//створюємо об'єкт, з якого запускаємо функцію двічі
+		var target = {
+			x: getRandomNumber(width),
+			y: getRandomNumber(height)
+		};
+
+		//обробник кліків
+		$("#map").click(function (event) {
+			//інкрементується лічильник кліків
+			clicks++;
+			
+			//отримуємо відстань між event і target
+			var distance = getDistance(event, target);
+			//конвертуємо відстань в підказку
+			distanceHint = getDistanceHint(distance);
+			//Оновлюємо #distance-елемент новою підказкою
+			var clicksRest = 100 - clicks;
+			$("#distance").text(distanceHint);
+			$("#the-rest").text("залишилось кліків: " + clicksRest);
+
+			//Якщо клік було зроблено достатньо близько, кажемо гравцеві, що він переміг
+			if (distance < 8) {
+				alert("Found the treasure in " + clicks + " Clicks!");
+			}
+
+			if (clicks > 99) {
+				alert("GAME OVER");
+			}
+		});
+	</script>
+</body>
+</html>
