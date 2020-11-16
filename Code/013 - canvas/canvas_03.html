@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Canvas #2</title>
+</head>
+<body>
+	<!-- canvas - малюємо робота -->
+	<canvas id="canvas" width="200" height="200"></canvas>
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		ctx.fillRect(40, 0, 50, 50);
+		ctx.fillRect(60, 50, 10, 20);
+		ctx.fillRect(0, 70, 130, 10);
+		ctx.fillRect(30, 80, 70, 60);
+		ctx.fillRect(30, 140, 10, 50);
+		ctx.fillRect(90, 140, 10, 50);
+	</script>
+</body>
+</html>

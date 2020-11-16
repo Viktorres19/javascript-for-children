@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Canvas Animation</title>
+</head>
+<body>
+	<canvas id="canvas" width="200" height="200"></canvas>
+
+	<script>
+		/*анімуємо рух квадрата*/
+		/*створюємо полоно*/
+		// var canvas = document.getElementById("canvas");
+		/*створюємо рисувальний контекст*/
+		// var ctx = canvas.getContext("2d");
+		/*створюємо змінну для позиції, що буде змінуватись всередині функції*/
+		// var position = 0;
+		/*створюємо інтервальну функцію, що буде малювати новий квадрат кожні 30 мілісекунд (33 рази в секунду*/
+		// setInterval(function () {
+			/*метод clearRect очищає все прямокутне поле полотна.
+			початкові координати очистки: 0, 0; площа 200 на 200*/
+			// ctx.clearRect(0, 0, 200, 200);
+			/*при першому проході малюється прямокутник на позиції 0,0*/
+			// ctx.fillStyle = "Aqua";
+			// ctx.fillRect(position, 0, 20, 20);
+			/*далі позиція збільшується на 1*/
+			// position++;
+			/*умова скидання змінної position на 0*/
+		// 	if (position > 200 - 20) {
+		// 		position = 0;
+		// 	}
+		// }, 30);
+
+		/*анімуємо розмір квадрата*/
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		/*змінна, щоб нарощувати розмі нашого квадрату*/
+		// var size = 0;
+		// setInterval(function () {
+		// 	ctx.clearRect(0, 0, 200, 200);
+		// 	ctx.fillRect(0, 0, size, size);
+		/*збільшуємо ширину та висоту квадрату на 1*/
+		// size++;
+		/*умова скидання змінної size на 0*/
+		// if (size > 200) {
+		// 	size = 0;
+		// }
+		// }, 30);
+
+		/*бджілка, що літає за випадковим маршрутом*/
+		/*функція з чотирьма аргументами*/
+		var circle = function (x, y, radius, fillCircle) {
+			ctx.beginPath();
+			/*метод arc малює коло*/
+			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			/*якщо fillCircle true - малюэмо заповнений круг*/
+			if (fillCircle) {
+				ctx.fill();
+			/*якщо fillCircle false - малюэмо обрис*/
+			} else {
+				ctx.stroke();
+			}
+		};
+		/*малюємо бджілку*/
+		var drawBee = function (x, y) {
+			/*ширина лінії*/
+			ctx.lineWidth = 2;
+			/*колір обводки*/
+			ctx.strokeStyle = "Black";
+			/*колір заливки*/
+			ctx.fillStyle = "Gold";
+			/*true означає, що буде заливка кола (тіло бджілки)*/
+			circle(x, y, 8, true);
+			/*false означає, що буде тільки обрис кола (тіло бджілки)*/
+			circle(x, y, 8, false);
+			/*крильця бджілки (на позиції 3 ми маємо радіус*/
+			circle(x - 5, y - 11, 5, false);
+			circle(x + 5, y - 11, 5, false);
+			/*очі бджілки*/
+			circle(x - 2, y - 1, 2, false);
+			circle(x + 2, y - 1, 2, false);
+		}
+		/*оновлюємо локацію бджілки*/
+		
+
+
+	</script>
+</body>
+</html>

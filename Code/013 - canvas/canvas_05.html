@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Canvas #5</title>
+</head>
+<body>
+	<!-- імпровізуємо -->
+	<canvas id="canvas" width="200" height="200"></canvas>
+	<script>
+		// #1  - малюємо 2 елементи: квадрат та рамку
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		// ctx.fillStyle = "DeepPink";
+		// ctx.fillRect(10, 10, 100, 20);
+		// ctx.strokeStyle = "Aqua";
+		// ctx.lineWidth = 5;
+		// ctx.strokeRect(10, 10, 100, 20);
+
+		// #2 - малюємо лінії або ж контури
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		//задаємо колір лінії
+		// ctx.strokeStyle = "Turquoise";
+		//задаємо ширину лінії
+		// ctx.lineWidth = 4;
+		//задаємо початок рисунка з нового контура (початок програми)
+		// ctx.beginPath();
+		//старт лінії
+		// ctx.moveTo(10, 10);
+		//фініш лінії
+		// ctx.lineTo(60, 60);
+		//запуск малювальної програми
+		// ctx.stroke();
+		//ось іщє початок програми
+		// ctx.beginPath();
+		//для цієї строки ми обрали інший колір
+		// ctx.strokeStyle = "Crimson";
+		//старт другої лінії
+		// ctx.moveTo(60, 10);
+		//фініш другої лінії
+		// ctx.lineTo(10, 60);
+		//знову запуск малювальної програми
+		// ctx.stroke();
+
+		// #3 - малюємо щасливого дяпчика
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		// ctx.lineWidth = 4;
+		// ctx.strokeRect(50, 10, 20, 20);
+		// ctx.beginPath();
+		// ctx.moveTo(60, 30);
+		// ctx.lineTo(60, 70);
+		// ctx.moveTo(60, 50);
+		// ctx.lineTo(80, 40);
+		// ctx.moveTo(60, 50);
+		// ctx.lineTo(40, 40);
+		// ctx.moveTo(60, 70);
+		// ctx.lineTo(80, 100);
+		// ctx.moveTo(60, 70);
+		// ctx.lineTo(40, 100);
+		// ctx.stroke();
+
+		// #4 - заповнюємо контур
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		//вибираємо колір
+		// ctx.fillStyle = "SkyBlue";
+		//ініціюємо малювання контуру
+		// ctx.beginPath();
+		//виставляємо початкову точку координат
+		// ctx.moveTo(100, 100);
+		//виставляємо точки нашої фігури
+		// ctx.lineTo(100, 60);
+		// ctx.lineTo(130, 30);
+		// ctx.lineTo(160, 60);
+		// ctx.lineTo(160, 100);
+		// ctx.lineTo(100, 100);
+		//заливаємо цей контур
+		// ctx.fill();
+
+		// #5 - малюємо арки та кола
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		// ctx.lineWidth = 2;
+		// ctx.strokeStyle = "Green";
+		//об'явили початок шляху
+		// ctx.beginPath();
+		//початок координат буде перехрестя 50 на 50, радіус буде 20 пікселів, 
+		//та початковий кут 0 (який малює арку, починаючи із правої сторони кола)
+		//кінчевий кут буде дорівнявани виразу Math.PI / 2 (половина півкола)
+		//метод false каже методу arc малювати проти годинниковоъ стрілки
+		// ctx.arc(50, 50, 20, 0, Math.PI / 2, false);
+		// ctx.stroke();
+		// ctx.beginPath();
+		// ctx.arc(100, 50, 20, 0, Math.PI, false);
+		// ctx.stroke();
+		// ctx.beginPath();
+		// ctx.arc(150, 50, 20, 0, Math.PI * 2, false);
+		// ctx.stroke();
+
+		//#6 - малюємо багато кіл за допомогою функції
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		//об'являємо функцію з трьома вхідними параметрами
+		// var circle = function (x, y, radius) {
+			// об'являємо початок малювання
+			// ctx.beginPath();
+			// метод arc приймає вхідні параметри та відпрацьовує
+			// ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			// запускаємо метод малювальної програми
+			// ctx.stroke();
+		// };
+		// ctx.lineWidth = 4;
+
+		// ctx.strokeStyle = "Red";
+		// circle(100, 100, 10);
+		
+		// ctx.strokeStyle = "Orange";
+		// circle(100, 100, 20);
+		
+		// ctx.strokeStyle = "Yellow";
+		// circle(100, 100, 30);
+		
+		// ctx.strokeStyle = "Green";
+		// circle(100, 100, 40);
+		
+		// ctx.strokeStyle = "Blue";
+		// circle(100, 100, 50);
+		
+		// ctx.strokeStyle = "Purple";
+		// circle(100, 100, 60);
+
+		// малюємо сніговика
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		var circle = function (x, y, radius, fillCircle) {
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			ctx.stroke();
+			if (fillCircle == true) {
+				ctx.fill();
+			}
+		}
+		ctx.lineWidth = 4;
+
+		circle(100, 40, 30, false);
+		ctx.strokeStyle = "Orange";
+		ctx.fillStyle = "Orange";
+		circle(100, 40, 3, true);
+		ctx.strokeStyle = "Black";
+		ctx.fillStyle = "Black";
+		circle(90, 30, 3, true);
+		circle(110, 30, 3, true);
+
+		circle(100, 110, 40, false);
+		circle(100, 110, 3, true);
+		circle(100, 90, 3, true);
+		circle(100, 130, 3, true);
+		
+	</script>
+</body>
+</html>

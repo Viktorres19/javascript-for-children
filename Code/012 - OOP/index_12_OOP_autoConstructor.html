@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Automobiles' constructor</title>
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+		/*функція конструктора автомобілів*/
+		//Конструктор Car, що задає кожному із автомобілів набир координат
+		var Car = function (x, y) {
+			this.x = x;
+			this.y = y;
+		};
+		//Викликаємо конструктор автомобілів
+		//new каже, що ми викликаємо конструктор для створення нового об'єкта
+		// var tesla = new Car(10, 20);
+		//тепер ми виводимо tesla
+
+		//Малюємо автомобілі
+		var drawCar = function (car) {
+			//рядок html, що вказує на зображення машини
+			var carHtml = '<img src="lamborghini.png">';
+			//передаємо carHTML до функції $, яка конвертує його в jQuery-елемент
+			//це дозволяє коригувати елементи перш ніж додавати їх до сторінки
+			var carElement = $(carHtml);
+			//використовуємо метод css (замість методу offset) до змінного параметра carElement і встановлюємо позицію зображення.
+			carElement.css({
+				position: "absolute",
+				left: car.x,
+				top: car.y
+			});
+			//тут ми використовуємо append, щоб прикріпити carElement до body
+			$("body").append(carElement);
+		};
+		//тестуємо функцію drawCar
+		//створюємо два нових об'єкти за допомогою конструктора Car
+		var tesla = new Car(20, 20);
+		var nissan = new Car(100, 200);
+		//запускаємо функцію drawCar з різними параметрами
+		drawCar(tesla);
+		drawCar(nissan);
+		
+		//синтаксис додавання методу до властивості prototype
+		// Car.prototype.draw = fucntion () {
+			// The body of the method
+		// }
+	</script>
+</body>
+</html>
