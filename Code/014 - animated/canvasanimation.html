@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CanvasAnimation</title>
+</head>
+<body>
+	<canvas id="canvas" width="200" height="200"></canvas>
+	<script>
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+		// var position = 0;
+		// var colors = ["green", "red", "yellow", "blue", "orange", "purple"];
+		// setInterval(function() {
+		// 	ctx.clearRect(0, 0, 200, 200);
+		// 	ctx.fillRect(position, position, 20, 20);
+
+		// 	position++;
+		// 	if(position > 200) {
+		// 		position = 0;
+		// 	}
+		// }, 30);
+
+
+		// var canvas = document.getElementById("canvas");
+		// var ctx = canvas.getContext("2d");
+
+		// var size = 0;
+
+		// setInterval(function () {
+		// 	ctx.clearRect(0, 0, 200, 200);
+		// 	ctx.fillRect(0, 0, size, size);
+
+		// 	size++;
+		// 	if(size > 200) {
+		// 		size = 0;
+		// 	}
+		// }, 100);
+
+
+		var circle = function (x, y, radius, fillCircle) {
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			if (fillCircle) {
+				ctx.fill();
+			} else {
+				ctx.stroke();
+			}
+		};
+
+		var drawBee = function (x, y) {
+			ctx.lineWidth = 2;
+			ctx.strokeStyle = "Black";
+			ctx.fillStyle = "Gold";
+
+			circle(x, y, 8, true);
+			circle(x, y, 8, false);
+			circle(x - 5, y - 11, 5, false);
+			circle(x + 5, y - 11, 5, false);
+			circle(x - 2, y - 1, 2, false);
+			circle(x + 2, y - 1, 2, false);
+		};
+
+	</script>
+</body>
+</html>

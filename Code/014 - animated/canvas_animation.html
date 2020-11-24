@@ -48,7 +48,7 @@
 		// }
 		// }, 30);
 
-		/*бджілка, що літає за випадковим маршрутом*/
+		/*----------бджілка, що літає за випадковим маршрутом----------*/
 		/*функція з чотирьма аргументами*/
 		var circle = function (x, y, radius, fillCircle) {
 			ctx.beginPath();
@@ -80,10 +80,42 @@
 			/*очі бджілки*/
 			circle(x - 2, y - 1, 2, false);
 			circle(x + 2, y - 1, 2, false);
-		}
+		};
 		/*оновлюємо локацію бджілки*/
-		
+		var update = function (coordinate) {
+			var offset = Math.random() * 4 - 2;
+			coordinate += offset;
 
+			if (coordinate > 200) {
+				coordinate = 200;
+			}
+			if (coordinate < 0) {
+				coordinate = 0;
+			}
+
+			return coordinate;
+		};
+
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		var x = 100;
+		var y = 100;
+
+		setInterval(function () {
+			/*очищаемо весь квадрат 200 на 200*/
+			ctx.clearRect(0 , 0, 200, 200);
+			/*викликаємо бджілку з початковими координатами 100 * 100*/
+			drawBee(x, y);
+			/*виклик оноблення локації бджілки*/
+			x = update(x);
+			y = update(y);
+			/*обводимо квадрат рамкою*/
+			ctx.strokeRect(0, 0, 200, 200);
+		}, 30);
+
+		/*----------м'ячик стрибунець!----------*/
+		
 
 	</script>
 </body>
