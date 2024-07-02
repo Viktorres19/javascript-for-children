@@ -1,70 +1,66 @@
-/* console.log('Hello')
-const cat = {
-  'legs': 4,
-  'name': 'Harmony',
-  'color': 'Tortoiseshell'
-}
-console.log(cat)
-console.log(cat['legs'])
-console.log(cat.name) */
+// console.log('Arrays')
+/* const dinosaursAndNumbers = [3, 'dinosaurs', ['triceratops, stegosaurus', 3627.5], 10]
+console.log(dinosaursAndNumbers)
+console.log(dinosaursAndNumbers.length)
+console.log(dinosaursAndNumbers[dinosaursAndNumbers.length - 1]) */
 
-/* const dog = {
-  name: 'Pancake',
-  age: 6,
-  color: 'white',
-  bark: 'Yip yap yip!'
-}
-console.log(dog)
-console.log(Object.keys(dog).length) // 4
-dog.surName = 'Gappy'
-console.log(dog)
-dog['ears'] = 2
-console.log(dog)
-dog['can help'] = true
-console.log(dog)
-console.log(typeof(dog['can help'])) */
+/* const animals = []
+animals.push('Cat')
+animals.push('Dog')
+animals.push('Llama')
+animals.push('Panda')
+console.log(animals)
+animals.unshift('Monkey')
+console.log(animals)
+animals.pop()
+console.log(animals)
+animals.shift()
+console.log(animals) */
 
-//Array of objects
-/* const anna = { name: 'Anna', age: 11, luckyNumbers: [2, 4, 8, 16]}
-const dave = { name: 'Dave', age: 5, luckyNumbers: [3, 9, 40]}
-const kate = { name: 'Kate', age: 9, luckyNumbers: [1, 2, 3]}
-const friends = [anna, dave, kate]
-console.log(friends) */
+//Unite arrays
+/* const furryAnimals = ['Alpaca', 'Ring-tailed Lemur', 'Yeti']
+const scalyAnimals = ['Boa Constrictor', 'Godzilla']
+const combinedAnimals = furryAnimals.concat(scalyAnimals)
+console.log(combinedAnimals)
+const monkeys = ['Godzilla', 'Makaka']
+const birds = ['Flamingo', 'Kakadou']
+const groupedAnimals = combinedAnimals.concat(monkeys, birds)
+console.log(groupedAnimals)
+console.log(groupedAnimals.indexOf('Yeti'))
+let stringOfAnimals = groupedAnimals.join(', ')
+console.log(stringOfAnimals) */
 
-//Info about movies
-/* const movies = {
-  'Finding Nemo': {
-    releaseDate: 2003,
-    duration: 100,
-    actors: ['Albert Brooks', 'Ellen DeGeneres', 'Alexander Gould'],
-    format: 'DVD'
-  },
-  'Star Wars: Episode VI - Return of the Jedi': {
-    releaseDate: 1983,
-    duration: 134,
-    actors: ['Mark Hamill', 'Harrison Ford', 'Carrie Fisher'],
-    format: 'DVD'
-  },
-  'Harry Potter and the Goblet of Fire': {
-    releaseDate: 2005,
-    duration: 157,
-    actors: ['Daniel Radcliffe', 'Emma Watson', 'Rupert Grint'],
-    format: 'Blu-ray'
-  },
-}
-const cars = {
-  releaseDate: 2006,
-    duration: 117,
-    actors: ['Owen Wilson', 'Bonnie Hunt', 'Paul Newman'],
-    format: 'Blu-ray'
-}
-movies['Cars'] = cars
-console.log(Object.keys(movies)) */
+//Way home
+/* const landmarks = []
+landmarks.push('My house')
+landmarks.push('Front path')
+landmarks.push('Flickering streetlamp')
+landmarks.push('Leaky fire hydrant')
+landmarks.push('Fire station')
+landmarks.push('Cat rescue center')
+landmarks.push('My old school')
+landmarks.push('My friend\'s house')
+console.log(landmarks)
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks.pop())
+console.log(landmarks) */
 
-//Extract the number from the object
-/* const myCrazyObject = {
-  'name': 'A ridiculous object',
-  'some array': [7, 9, { purpose: 'confusion', number: 123 }, 3.3],
-  'random animal': 'Banana Shark'
-}
-console.log(myCrazyObject['some array'][2].number) */
+//Wright math random
+/* console.log(Math.floor(Math.random() * 10)) */
+
+//Random Insult
+/* const randomBodyParts = ['Face', 'Nose', 'Hair']
+const randomAdjectives = ['Smelly', 'Boring', 'Stupid']
+const randomWords = ['Fly', 'Marmot', 'Stick', 'Monkey', 'Rat']
+const randomInsult = 'Your ' + randomBodyParts[Math.floor(Math.random() * (randomBodyParts.length))] + ' is like a ' + randomAdjectives[Math.floor(Math.random() * (randomBodyParts.length))] + ' ' + randomWords[Math.floor(Math.random() * (randomBodyParts.length))]
+console.log(randomInsult) */
+
+//Unite numbers
+/* const numbersMassive = [3, 2, 1]
+console.log(numbersMassive.join(' is bigger than ')) */
