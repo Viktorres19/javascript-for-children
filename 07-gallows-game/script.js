@@ -70,8 +70,12 @@ if (mysteriousWord === null || mysteriousWord.length == 0) {
       // Update the game state with the guess
       for (let j = 0; j < mysteriousWordArray.length; j++) {
         if (mysteriousWordArray[j] === guess) {
-          answerWord[j] = guess
-          remainingLetters--
+          if (answerWord.includes(guess)) {
+            alert('You entered repeated word.')
+          } else {
+            answerWord[j] = guess
+            remainingLetters--
+          }
         }
       }
       if (remainingLetters > 0) {
