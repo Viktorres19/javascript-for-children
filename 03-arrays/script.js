@@ -60,6 +60,15 @@ const randomAdjectives = ['Smelly', 'Boring', 'Stupid']
 const randomWords = ['Fly', 'Marmot', 'Stick', 'Monkey', 'Rat']
 const randomInsult = 'Your ' + randomBodyParts[Math.floor(Math.random() * (randomBodyParts.length))] + ' is like a ' + randomAdjectives[Math.floor(Math.random() * (randomBodyParts.length))] + ' ' + randomWords[Math.floor(Math.random() * (randomBodyParts.length))]
 console.log(randomInsult) */
+//Random Insult on functions
+/* const randomBodyParts = ['Face', 'Nose', 'Hair']
+const randomAdjectives = ['Smelly', 'Boring', 'Stupid']
+const randomWords = ['Fly', 'Marmot', 'Stick', 'Monkey', 'Rat']
+const pickRandomWord = (array) => {
+  return array[Math.floor(Math.random() * (array.length))]
+}
+const randomInsult = 'Your ' + pickRandomWord(randomBodyParts) + ' is like a ' + pickRandomWord(randomAdjectives) + ' ' + pickRandomWord(randomWords)
+console.log(randomInsult) */
 
 //Unite numbers
 /* const numbersMassive = [3, 2, 1]
