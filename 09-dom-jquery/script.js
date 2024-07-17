@@ -34,7 +34,16 @@ const moveHeading = () => {
 }
 setInterval(moveHeading, 30) */
 
-const clickHandler = (event) => {
+//React mouse click
+/* const clickHandler = (event) => {
   console.log('Click! ' + event.pageX + ' ' + event.pageY)
 }
-$('h1').click(clickHandler)
+$('h1').click(clickHandler) */
+
+//Event mouse moving
+$('html').mousemove(function (event) {
+  $('#heading').offset({
+    left: event.pageX,
+    top: event.pageY
+  })
+})
