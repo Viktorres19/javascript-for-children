@@ -1,33 +1,40 @@
-/* console.log('Hello!')
-const headingElement = document.querySelector('#main-heading')
-if (headingElement) {
-  console.log(headingElement.innerHTML)
+// console.log('Hello!')
+/* const timeUp = () => {
+  alert('Time up!')
 }
-let newHeadingText = prompt('Please provide a new heading')
-headingElement.innerHTML = newHeadingText */
+setTimeout(timeUp, 3000) */
 
-//added jquery
-/* $(document).ready(function() {
-  let newHeadingText = prompt('Please provide a new heading')
-  $('#main-heading').text(newHeadingText)
-  $('body').append('<p>This is a new paragraph</p>')
-}) */
+/* const doHomeworkAlarm = () => {
+  alert('Hey! You need to do your homework!')
+}
+const timeoutId = setTimeout(doHomeworkAlarm, 60000)
+clearTimeout(timeoutId) */
 
-//hobbies jquery
-$(document).ready(function() {
-  /* for (let i = 0; i < 3; i++) {
-    let hobby = prompt('Tell me your 3 hobbies in order from 1 to 3')
-    $('body').append('<p>' + hobby + '</p>')
-  } */
-  /*$('h1').fadeOut(3000)*/
-
-  /* $('h1').text('This will fade out').fadeOut(3000).fadeIn(2000)
-  $('h2').slideUp(1000).slideDown(1000)
-  $('h3').fadeOut(1000)
-  $('h3').fadeIn(1000) */
-
-  for (let i = 0; i < 3; i++) {
-    $('h3').fadeOut(1000)
-    $('h3').fadeIn(1000)
+/* let counter = 1
+const printMessage = () => {
+  console.log(`You have been starting at your console for ${counter} seconds`)
+  if (counter > 6) {
+    alert('Counter')
+    clearInterval(intervalId)
   }
-})
+  counter++
+}
+const intervalId = setInterval(printMessage, 1000) */
+
+//Animate elements using setinterval
+/* let leftOffset = 0
+const moveHeading = () => {
+  $('#heading').offset({ left: leftOffset })
+
+  leftOffset++
+
+  if (leftOffset > 200) {
+    leftOffset = 0
+  }
+}
+setInterval(moveHeading, 30) */
+
+const clickHandler = (event) => {
+  console.log('Click! ' + event.pageX + ' ' + event.pageY)
+}
+$('h1').click(clickHandler)
