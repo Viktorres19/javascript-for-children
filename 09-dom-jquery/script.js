@@ -41,9 +41,29 @@ setInterval(moveHeading, 30) */
 $('h1').click(clickHandler) */
 
 //Event mouse moving
-$('html').mousemove(function (event) {
+/* $('html').mousemove(function (event) {
   $('#heading').offset({
     left: event.pageX,
     top: event.pageY
   })
-})
+}) */
+//#1 Event mouse click
+/* $('html').click(function (event) {
+  $('#heading').offset({
+    left: event.pageX,
+    top: event.pageY
+  })
+}) */
+
+//#2 Create our own animation
+let leftOffset = 0
+const moveHeading = () => {
+  $('#heading').offset({ left: leftOffset })
+
+  leftOffset++
+
+  if (leftOffset > 200) {
+    leftOffset = 0
+  }
+}
+setInterval(moveHeading, 30)
