@@ -87,14 +87,16 @@ setInterval(() => {
 }, 30) */
 
 
-//A Bouncing Ball
-const Ball = function () {
-  this.x = 100
-  this.y = 100
-  this.xSpeed = -2
-  this.ySpeed = 3
-}
+//A Bouncing Ball (including Task 1 & 2)
+//Constructor of the ball
 
+/* const Ball = function () {
+  this.x = width / 2
+  this.y = height / 2
+  this.xSpeed = (Math.random() * 4 - 2)
+  this.ySpeed = (Math.random() * 4 - 2)
+}
+//Draw the ball
 const circle = (x, y, radius, fillCircle) => {
   ctx.beginPath()
   ctx.arc(x, y, radius, 0, Math.PI * 2, false)
@@ -108,3 +110,190 @@ const circle = (x, y, radius, fillCircle) => {
 Ball.prototype.draw = function () {
   circle(this.x, this.y, 3, true)
 }
+//Move the ball
+Ball.prototype.move = function () {
+  this.x += this.xSpeed
+  this.y += this.ySpeed
+}
+//Bouncing the ball
+Ball.prototype.checkCollision = function () {
+  if (this.x < 0 || this.x > width) {
+    this.xSpeed = -this.xSpeed
+  }
+  if (this.y < 0 || this.y > height) {
+    this.ySpeed = -this.ySpeed
+  }
+}
+//Animate the ball
+const canvas = document.querySelector('#canvas')
+const ctx = canvas.getContext('2d')
+let width = prompt("Enter the width for the canvas:");
+let height = prompt("Enter the height for the canvas:");
+canvas.width = width
+canvas.height = height
+
+const ball = new Ball()
+
+setInterval(() => {
+  ctx.clearRect(0, 0, width, height)
+
+  ball.draw()
+  ball.move()
+  ball.checkCollision()
+  ctx.strokeRect(0, 0, width, height)
+}, 30) */
+
+//#3 Animate more balls
+/* const canvas = document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
+
+let width = parseInt(prompt("Enter the width for the canvas:"), 10);
+let height = parseInt(prompt("Enter the height for the canvas:"), 10);
+
+if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+    width = 400; // Default width
+    height = 400; // Default height
+    alert('Invalid input. Using default size 400x400.');
+}
+
+canvas.width = width;
+canvas.height = height;
+
+const Ball = function () {
+    this.x = width / 2;
+    this.y = height / 2;
+    this.xSpeed = (Math.random() * 4 - 2); // Random speed between -2 and 2
+    this.ySpeed = (Math.random() * 4 - 2); // Random speed between -2 and 2
+};
+
+// Draw the ball
+const circle = (x, y, radius, fillCircle) => {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    if (fillCircle) {
+        ctx.fill();
+    } else {
+        ctx.stroke();
+    }
+};
+
+Ball.prototype.draw = function () {
+    circle(this.x, this.y, 3, true);
+};
+
+// Move the ball
+Ball.prototype.move = function () {
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+};
+
+// Bouncing the ball
+Ball.prototype.checkCollision = function () {
+    if (this.x < 0 || this.x > width) {
+        this.xSpeed = -this.xSpeed;
+    }
+    if (this.y < 0 || this.y > height) {
+        this.ySpeed = -this.ySpeed;
+    }
+};
+
+// Create an array of 10 balls
+const balls = [];
+for (let i = 0; i < 10; i++) {
+    balls.push(new Ball());
+}
+
+setInterval(() => {
+    ctx.clearRect(0, 0, width, height);
+
+    // Draw, move, and check collision for each ball
+    for (let i = 0; i < balls.length; i++) {
+        balls[i].draw();
+        balls[i].move();
+        balls[i].checkCollision();
+    }
+
+    ctx.strokeRect(0, 0, width, height);
+}, 30); */
+
+//#4 Paint balls
+const canvas = document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
+
+let width = parseInt(prompt("Enter the width for the canvas:"), 10);
+let height = parseInt(prompt("Enter the height for the canvas:"), 10);
+
+if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+    width = 400; // Default width
+    height = 400; // Default height
+    alert('Invalid input. Using default size 400x400.');
+}
+
+canvas.width = width;
+canvas.height = height;
+
+const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple'];
+
+const pickRandomColor = () => {
+    return colors[Math.floor(Math.random() * colors.length)];
+};
+
+const Ball = function () {
+    this.x = width / 2;
+    this.y = height / 2;
+    this.xSpeed = (Math.random() * 4 - 2); // Random speed between -2 and 2
+    this.ySpeed = (Math.random() * 4 - 2); // Random speed between -2 and 2
+    this.color = pickRandomColor();
+};
+
+// Draw the ball
+const circle = (x, y, radius, fillCircle, color) => {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    if (fillCircle) {
+        ctx.fillStyle = color;
+        ctx.fill();
+    } else {
+        ctx.strokeStyle = color;
+        ctx.stroke();
+    }
+};
+
+Ball.prototype.draw = function () {
+    circle(this.x, this.y, 3, true, this.color);
+};
+
+// Move the ball
+Ball.prototype.move = function () {
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+};
+
+// Bouncing the ball
+Ball.prototype.checkCollision = function () {
+    if (this.x < 0 || this.x > width) {
+        this.xSpeed = -this.xSpeed;
+    }
+    if (this.y < 0 || this.y > height) {
+        this.ySpeed = -this.ySpeed;
+    }
+};
+
+// Create an array of 10 balls
+const balls = [];
+for (let i = 0; i < 10; i++) {
+    balls.push(new Ball());
+}
+
+setInterval(() => {
+    ctx.clearRect(0, 0, width, height);
+
+    // Draw, move, and check collision for each ball
+    for (let i = 0; i < balls.length; i++) {
+        balls[i].draw();
+        balls[i].move();
+        balls[i].checkCollision();
+    }
+
+    ctx.strokeRect(0, 0, width, height);
+}, 30);
